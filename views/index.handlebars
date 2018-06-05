@@ -27,28 +27,28 @@
     <div class = "row space"></div>
 
     <!-- Table -->
-    <div class = "row">
+    <div class = "row d-flex flex-row justify-content-around">
 
-        <div class = "col-12 border border-info">
+        <div class = "col-4 border border-info">
 
             <!-- Table Title -->
             <div class = "row bg-info text-light">
-                <h5 class = "ml-3 mt-1">title</h5>
+                <h5 class = "ml-3 mt-1">Burgers to Eat</h5>
             </div>
             
             <!-- Table -->
-            <table class = "table">
+            <table class = "table table-sm">
 
                 <!-- Table headings -->
-                <thead>
+                {{!-- <thead>
                     <tr>
-                        <th scope = "col">Train Name</th>
+                        <th scope = "col" class = "small font-weight-bold">Train Name</th>
                         <th scope = "col">Destination</th>
                         <th scope = "col">Frequency (min)</th>
                         <th scope = "col">Next Arrival</th>
                         <th scope = "col">Minutes Away</th>
                     </tr>
-                </thead>
+                </thead> --}}
     
                 <!-- Table Entries -->
                 <tbody id = "table-body">
@@ -73,6 +73,17 @@
                         <td>total2</td>
                     </tr> -->
 
+                    {{#each burgers}}
+                    <tr>
+                        <td>
+                            <button data-id="{{this.id}}" class = "eatBurger">Eat!</button>
+                        </td>
+                        <td class = "burger-id">{{this.id}}</td>
+                        <td class = "burger-name">{{this.burger_type}}</td>
+                    </tr>
+
+                    {{/each}}
+
                 </tbody>
 
             </table>
@@ -93,6 +104,10 @@
             <div class = "burger-container">asdf</div>
         </div>
     </div> --}}
+
+    <div class = "row space"></div>
+
+    <div class = "row space"></div>
 
     <div class = "row">
         <div class = "col-4"></div>
