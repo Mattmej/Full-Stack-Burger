@@ -41,7 +41,7 @@ connection.connect(function(err) {
 app.get("/", function(req, res) {
     connection.query("SELECT * FROM burgers;", function(err, data) {
         if (err) return err;
-        res.render("index", {burgers: data});
+        res.render("/app/views/index", {burgers: data});
     });
 });
 
