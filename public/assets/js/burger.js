@@ -1,74 +1,64 @@
-$(document).ready(function() {
-
-    // $(document).on("click", "button.eatBurger", eatBurger(event));
-    $(".eatBurger").on("click", eatBurger(event));
-
-
-    function eatBurger(event) {
-        // event.stopPropagation();
-        var id = $(this).data("id");
-
-        // // Takes the info from the text box and places it 
-        // // in the burger list.
-        // var eatenBurger = {
-        //     burger_type: $("#burger-box").val().trim()
-        // };
-
-        // var eatenBurger = {
-        //     burger_type: $(this).data("burger_type")
-        // };
-
-        // Deletes the burger from the "burgers" table
-        $.ajax("/api/burgers/" + id, {
-            type: "DELETE"
-            // url: "/api/burgers/" + id
-        })
-        .then(function() {
-
-            // Adds the burger to the "eaten_burgers" table
-            // $.ajax({
-            //     method: "POST",
-            //     // data: eatenBurger,
-            //     // data: "/api/burgers" + id,
-            //     data: eatenBurger;
-            //     url: "/api/burgers"
-            // })
-            // .then(function() {
-            //     console.log("Ate the burger!");
-            //     location.reload();
-            // })
-
-
-            console.log("Deleted ID: " + id);
-            location.reload();
-        });
-    };
-
-
-
-
-
-
-
-
-});
-
-
-
-
-
-
-
-
-
-// $(function() {
-//     $(".eatBurger").on("click", function(event) {
-//         var id = $(this).data("id");
-
-//         // DELETE request
-//         $.ajax({
-//             method: "DELETE",
-//             url: "/api/burgers" + id
-//         }
-//     })
-// })
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function() {
+    $(".eatBurger").on("click", function(event) {
+      var id = $(this).data("id");
+  
+      // Send the DELETE request.
+      $.ajax("/api/burgers/" + id, {
+        type: "DELETE"
+      }).then(
+        function() {
+          console.log("deleted id ", id);
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
+  
+    // $(".create-form").on("submit", function(event) {
+    //   // Make sure to preventDefault on a submit event.
+    //   event.preventDefault();
+  
+    //   var newQuote = {
+    //     author: $("#auth").val().trim(),
+    //     quote: $("#quo").val().trim()
+    //   };
+  
+    //   // Send the POST request.
+    //   $.ajax("/api/quotes", {
+    //     type: "POST",
+    //     data: newQuote
+    //   }).then(
+    //     function() {
+    //       console.log("created new quote");
+    //       // Reload the page to get the updated list
+    //       location.reload();
+    //     }
+    //   );
+    // });
+  
+    // $(".update-form").on("submit", function(event) {
+    //   // Make sure to preventDefault on a submit event.
+    //   event.preventDefault();
+  
+    //   var updatedQuote = {
+    //     author: $("#auth").val().trim(),
+    //     quote: $("#quo").val().trim()
+    //   };
+  
+    //   var id = $(this).data("id");
+  
+    //   // Send the POST request.
+    //   $.ajax("/api/quotes/" + id, {
+    //     type: "PUT",
+    //     data: updatedQuote
+    //   }).then(
+    //     function() {
+    //       console.log("updated quote");
+    //       // Reload the page to get the updated list
+    //       location.assign("/");
+    //     }
+    //   );
+    // });
+  });
+  
