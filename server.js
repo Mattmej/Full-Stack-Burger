@@ -45,6 +45,49 @@ app.get("/", function(req, res) {
     });
 });
 
+app.get("/api/burgers", function(req, res) {
+  connection.query("SELECT * FROM burgers", function(err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
+// app.get("/api/burgers/:id", function(req, res) {
+//   connection.query("SELECT * FROM quotes WHERE id = ?", [req.params.id], function(err, result) {
+//     if (err) {
+//       return res.status(500).end();
+//     }
+
+//     console.log(result);
+//     res.render("index", result[0]);
+//     res.json(result);
+//   });
+// });
+
+app.post("/api/burgers", function(req, res) {
+  connection.query("INSERT INTO eaten_burgers (burger_type) VALUES (?, ?)", [req.body.burger_type], function(err, result) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    res.json({id: result.insertId});
+  });
+} );
+
+// app.delete("/api/burgers/:id", function(req, res) {
+//   connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
+//     if (err) {
+//       return res.status(500).end();
+//     }
+
+//     else if (result.affectedRows === 0) {
+//       return res.status(404).end();
+//     }
+
+//     res.status(200).end();
+//   })
+// })
+
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
     // Log (server-side) when our server has started
