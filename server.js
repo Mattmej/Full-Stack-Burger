@@ -46,6 +46,17 @@ app.get("/", function(req, res) {
     });
 });
 
+app.post("/api/burgers", function(req, res) {
+  connection.query("INSERT INTO burgers (burger_type) VALUES (?)", [req.body.burger_type], function(err, result) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    console.log(result);
+    res.json({id: result.insertId});
+  });
+});
+
 // The following happens when the user deletes info from the "/api/burgers" path
 app.delete("/api/burgers/:id", function(req, res) {
   connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
@@ -59,6 +70,8 @@ app.delete("/api/burgers/:id", function(req, res) {
     res.status(200).end();
   });
 });
+
+
 
 
 
