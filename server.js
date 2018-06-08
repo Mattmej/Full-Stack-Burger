@@ -41,9 +41,22 @@ connection.connect(function(err) {
 // The following happens when the user gets info from "/" path
 app.get("/", function(req, res) {
     connection.query("SELECT * FROM burgers;", function(err, data) {
-        if (err) return err;
+        if (err) {
+          return res.status(500).end();
+        }
+
         res.render("index", {burgers: data});
     });
+});
+
+app.get("/", function(req, res) {
+  connection.query("SELECT * FROM eaten_burgers;", function(err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    res.render("index", {eaten_burgers: data});
+  });
 });
 
 app.post("/api/burgers", function(req, res) {
@@ -70,6 +83,17 @@ app.delete("/api/burgers/:id", function(req, res) {
     res.status(200).end();
   });
 });
+
+app.post("/api/eaten_burgers", function(req, res) {
+  connection.query("INSERT INTO eaten_burgers (burger_type) SELECT (burger_type) FROM burgers WHERE id = ?", [req.body.id], function(err, result) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    console.log(result);
+    res.json({id: result.insertId});
+  })
+})
 
 
 

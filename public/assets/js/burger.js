@@ -2,17 +2,21 @@
 $(function() {
     $(".eatBurger").on("click", function(event) {
       var id = $(this).data("id");
-      var eatenBurger = $(this).data("burger_type");
+      // var eatenBurger = $(this).data("burger_type");
+      // var eatenBurger = $(this).find(".burger-name");
   
-      // Send the DELETE request.
-      $.ajax("/api/burgers/" + id, {
-        type: "DELETE"
+      // Send the POST request.
+      $.ajax("/api/eaten_burgers/" + id, {
+        type: "POST"
       }).then(
         function() {
+          // finishEat(eatenBurger);
+          finishEat(id);
           console.log("deleted id ", id);
           // Reload the page to get the updated list
-          // location.reload();
-          finishEat(eatenBurger);
+          // console.log(eatenBurger);
+          location.reload();
+
         }
       );
     });
@@ -34,12 +38,12 @@ $(function() {
         });
     });
     
-    function finishEat(eatenBurger) {
+    function finishEat(id) {
 
 
 
-      $.ajax("/api/eaten_burgers", {
-        type: "POST",
+      $.ajax("/api/burgers/" + id, {
+        type: "DELETE",
         data: eatenBurger
       })
       .then(function() {
