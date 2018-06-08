@@ -2,6 +2,7 @@
 $(function() {
     $(".eatBurger").on("click", function(event) {
       var id = $(this).data("id");
+      var eatenBurger = $(this).data("burger_type");
   
       // Send the DELETE request.
       $.ajax("/api/burgers/" + id, {
@@ -10,7 +11,8 @@ $(function() {
         function() {
           console.log("deleted id ", id);
           // Reload the page to get the updated list
-          location.reload();
+          // location.reload();
+          finishEat(eatenBurger);
         }
       );
     });
@@ -31,6 +33,20 @@ $(function() {
             location.reload();
         });
     });
+    
+    function finishEat(eatenBurger) {
+
+
+
+      $.ajax("/api/eaten_burgers", {
+        type: "POST",
+        data: eatenBurger
+      })
+      .then(function() {
+        console.log("Burger Eaten!");
+        location.reload();
+      })
+    }
   
     // $(".create-form").on("submit", function(event) {
     //   // Make sure to preventDefault on a submit event.
