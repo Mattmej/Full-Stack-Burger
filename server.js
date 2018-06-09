@@ -20,23 +20,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var mysql = require("mysql");
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "1@rv@1p10p519",
-  database: "burger_db"
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-
-  console.log("connected as id " + connection.threadId);
-});
 
 // The following happens when the user gets info from "/" path
 app.get("/", function(req, res) {
