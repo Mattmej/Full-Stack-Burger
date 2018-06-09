@@ -40,11 +40,27 @@ connection.connect(function(err) {
 
 // The following happens when the user gets info from "/" path
 app.get("/", function(req, res) {
-    connection.query("SELECT * FROM burgers WHERE eaten=false;", function(err, data) {
+    connection.query("SELECT * FROM burgers;", function(err, data) {
         if (err) return err;
         res.render("index", {burgers: data});
     });
 });
+
+// app.get("/", function(req, res) {
+//   connection.query("SELECT * FROM burgers WHERE eaten=true;", function(err, data) {
+//     if (err) {
+//       return res.status(500).end();
+//     }
+//     res.render("index", {eaten_burgers: data});
+//   });
+// });
+
+
+
+
+
+
+
 
 app.post("/api/burgers", function(req, res) {
   connection.query("INSERT INTO burgers (burger_type) VALUES (?)", [req.body.burger_type], function(err, result) {
