@@ -1,19 +1,43 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
+    // $(".eatBurger").on("click", function(event) {
+    //   var id = $(this).data("id");
+  
+    //   // Send the DELETE request.
+    //   $.ajax("/api/burgers/" + id, {
+    //     type: "DELETE"
+    //   }).then(
+    //     function() {
+    //       console.log("deleted id ", id);
+    //       // Reload the page to get the updated list
+    //       location.reload();
+    //     }
+    //   );
+    // });
+
     $(".eatBurger").on("click", function(event) {
       var id = $(this).data("id");
-  
-      // Send the DELETE request.
+      var update = {
+        eaten: true
+      };
+
       $.ajax("/api/burgers/" + id, {
-        type: "DELETE"
-      }).then(
-        function() {
-          console.log("deleted id ", id);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
+        type: "PUT",
+        data: update
+      }).then(function() {
+
+        // reloads the page to get the updated list
+        location.assign("/");
+      })
+
+    })
+
+
+
+
+
+
+
 
     $("#new-burger").on("submit", function(event) {
         event.preventDefault();
