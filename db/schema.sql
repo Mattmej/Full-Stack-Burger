@@ -1,7 +1,9 @@
 -- DROP DATABASE IF EXISTS burger_db;
-CREATE DATABASE burger_db;
+-- CREATE DATABASE burger_db;
 
-USE burger_db;
+-- USE burger_db;
+
+USE r0nmzjo7wqoztp2z;
 
 CREATE TABLE burgers (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -10,5 +12,5 @@ CREATE TABLE burgers (
     PRIMARY KEY (id)
 );
 
-INSERT INTO burgers (burger_type)
-VALUES ("Western Bacon"), ("Guacamole"), ("Hawaiian");
+-- INSERT INTO burgers (burger_type)
+-- VALUES ("Western Bacon"), ("Guacamole"), ("Hawaiian");
