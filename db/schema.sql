@@ -1,7 +1,5 @@
--- DROP DATABASE IF EXISTS burger_db;
--- CREATE DATABASE burger_db;
-
--- USE burger_db;
+-- DROP DATABASE IF EXISTS r0nmzjo7wqoztp2z;
+CREATE DATABASE r0nmzjo7wqoztp2z;
 
 USE r0nmzjo7wqoztp2z;
 
@@ -11,6 +9,3 @@ CREATE TABLE burgers (
     eaten BOOLEAN DEFAULT false,
     PRIMARY KEY (id)
 );
-
--- INSERT INTO burgers (burger_type)
--- VALUES ("Western Bacon"), ("Guacamole"), ("Hawaiian");
