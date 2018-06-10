@@ -1,5 +1,6 @@
 var connection = require("../config/connection.js");
 
+// This object will help run sql queries.
 var orm = {
     selectAll: function(table, cb) {
         var query = "SELECT * FROM ??";

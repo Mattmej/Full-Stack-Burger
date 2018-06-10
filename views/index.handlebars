@@ -42,6 +42,7 @@
                 <!-- Table Entries -->
                 <tbody id = "table-body">
 
+                    <!-- Loops through the uneaten burgers and displays them onto the page -->
                     {{#each burgers}} {{#unless eaten}}
                     <tr>
                         <td>
@@ -74,11 +75,9 @@
                 <!-- Table Entries -->
                 <tbody id = "table-body">
 
+                    <!-- Loops through the eaten burgers and displays them onto the page -->
                     {{#each burgers}} {{#if eaten}}
                     <tr>
-                        {{!-- <td>
-                            <button data-id="{{this.id}}" class = "eatBurger">Eat!</button>
-                        </td> --}}
                         <td class = "burger-id">{{this.id}}</td>
                         <td class = "burger-name">{{this.burger_type}}</td>
                     </tr>
@@ -103,17 +102,7 @@
 
     <div class = "row space"></div>
 
-    {{!-- <div class = "row">
-        <div class = "col-4"></div>
-        <div class = "col-4">
-            <div class = "form-group">
-                <label for = "burger-box">Enter a burger!</label>
-                <textarea class = "form-control" rows = "3" id = "burger-box"></textarea>
-            </div>
-        </div>
-        <div class = "col-4"></div>
-    </div> --}}
-
+    <!-- Form to submit new bugers to eat -->
     <div class = "row" id = "new-burger">
         <form class = "mx-auto">
             <div class = "form-group">
