@@ -8,6 +8,8 @@ $(function() {
       eaten: true
     };
 
+    // Ajax request to path "/api/burgers/:id"
+    // Updates the "eaten" value of a burger to "true"
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: update
@@ -23,16 +25,21 @@ $(function() {
   $("#new-burger").on("submit", function(event) {
       event.preventDefault();
 
+      // Burger to be added to "burgers to eat" list
       var newBurger = {
           burger_type: $("#burger-box").val().trim()
       };
 
+      // Ajax POST request to path "/api/burgers"
+      // Adds the new burger to the database.
       $.ajax("/api/burgers", {
           type: "POST",
           data: newBurger
       })
       .then(function() {
           console.log("New Burger Added!");
+
+          // Reloads the page
           location.reload();
       });
   });
