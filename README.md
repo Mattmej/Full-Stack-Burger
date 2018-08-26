@@ -25,6 +25,8 @@ To save a burger to the "burgers to eat" list, the user must enter the name of a
 
 ![add_burger](https://github.com/Mattmej/Full-Stack-Burger/blob/master/public/assets/gifs/add_burger.gif)
 
+
+
 Under the "burgers to eat" list, each burger has a button that allows the user to move the burger to the "eaten burgers" list. Pressing a burger's button will also set the burger's "eaten" value in the SQL table to "true."
 
 ![eat_burger](https://github.com/Mattmej/Full-Stack-Burger/blob/master/public/assets/gifs/eat_burger.gif)
