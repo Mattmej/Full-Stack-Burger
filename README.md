@@ -21,11 +21,13 @@ This project is another example of a full-stack application, but this time the f
 
 This application allows users to save a list of burgers and then "eat" them by pressing a button.
 
-To save a burger to the "burgers to eat" list, the user must enter the name of a burger in the text box at the bottom of the app. After entering a name, the user presses "submit" to add the entered burger into the list.
+To save a burger to the "burgers to eat" list, the user must enter the name of a burger in the text box at the bottom of the app. After entering a name, the user presses "submit" to add the entered burger into the list. Adding the burger to the "burgers to eat" list will also add the burger to app's associated SQL table.
 
 ![add_burger](https://github.com/Mattmej/Full-Stack-Burger/blob/master/public/assets/gifs/add_burger.gif)
 
+Under the "burgers to eat" list, each burger has a button that allows the user to move the burger to the "eaten burgers" list. Pressing a burger's button will also set the burger's "eaten" value in the SQL table to "true."
 
+![eat_burger](https://github.com/Mattmej/Full-Stack-Burger/blob/master/public/assets/gifs/eat_burger.gif)
 
 ### File Structure
 
