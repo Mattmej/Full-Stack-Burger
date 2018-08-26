@@ -23,6 +23,10 @@ This application allows users to save a list of burgers and then "eat" them by p
 
 To save a burger to the "burgers to eat" list, the user must enter the name of a burger in the text box at the bottom of the app. After entering a name, the user presses "submit" to add the entered burger into the list.
 
+![add_burger](https://github.com/Mattmej/Full-Stack-Burger/blob/master/public/assets/gifs/add_burger.gif)
+
+
+
 ### File Structure
 
 This application has multiple interconnecting files with more modularity than the previous _FriendFinder_ application, so the file structure will be detailed below, followed by a description of each important file. Files in the file structure will be italicized.
